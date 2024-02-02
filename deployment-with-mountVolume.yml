@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pods-with-volumes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      — name: my-container
+        image: nginx:1.14.2
+        volumeMounts:
+        — mountPath: /
+          name: my-volume
+      volumes:
+      — name: my-volume
+        emptyDir: {}
