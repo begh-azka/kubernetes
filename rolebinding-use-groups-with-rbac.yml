@@ -1,0 +1,37 @@
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: kube-system
+For all service accounts in the "qa" namespace:
+
+subjects:
+- kind: Group
+  name: system:serviceaccounts:qa
+  apiGroup: rbac.authorization.k8s.io
+For all service accounts in any namespace:
+
+subjects:
+- kind: Group
+  name: system:serviceaccounts
+  apiGroup: rbac.authorization.k8s.io
+For all authenticated users:
+
+subjects:
+- kind: Group
+  name: system:authenticated
+  apiGroup: rbac.authorization.k8s.io
+For all unauthenticated users:
+
+subjects:
+- kind: Group
+  name: system:unauthenticated
+  apiGroup: rbac.authorization.k8s.io
+For all users:
+
+subjects:
+- kind: Group
+  name: system:authenticated
+  apiGroup: rbac.authorization.k8s.io
+- kind: Group
+  name: system:unauthenticated
+  apiGroup: rbac.authorization.k8s.io
